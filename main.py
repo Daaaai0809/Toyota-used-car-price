@@ -51,7 +51,7 @@ features = [int(i) for i in features]
 print("cross validation num")
 cv = int(input("> "))
 
-with open("toyota-integered-{}.csv".format(car_name), 'r') as file:
+with open("csv/toyota-integered-{}.csv".format(car_name), 'r') as file:
     line = file.readline()
     data = np.loadtxt(file, delimiter=',', usecols=(range(0, 9)))
 

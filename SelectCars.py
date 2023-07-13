@@ -40,13 +40,13 @@ def select_cars(car_num):
     elif car_num == 17:
         car_name = 'Yaris'
 
-    car_file_name = 'toyota-integered-{}.csv'.format(car_name)
+    car_file_name = 'csv/toyota-integered-{}.csv'.format(car_name)
     car_data = pd.read_csv(car_file_name)
     if not car_data.empty:
         return car_name
     
     # データ読み込み
-    file_name = 'toyota-integered.csv'
+    file_name = 'csv/toyota-integered.csv'
     data = pd.read_csv(file_name)
     keys = data.keys()      # キー(項目)の名前を取得
 
@@ -60,6 +60,6 @@ def select_cars(car_num):
             data_new = data_new.drop(i)
 
     # データの保存
-    data_new.to_csv('toyota-integered-{}.csv'.format(car_name), index=False)
+    data_new.to_csv('csv/toyota-integered-{}.csv'.format(car_name), index=False)
 
     return car_name
