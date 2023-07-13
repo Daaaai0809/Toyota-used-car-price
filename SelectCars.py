@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import os
 from sklearn.preprocessing import LabelEncoder
 
 def select_cars(car_num):
@@ -41,8 +42,7 @@ def select_cars(car_num):
         car_name = 'Yaris'
 
     car_file_name = 'csv/toyota-integered-{}.csv'.format(car_name)
-    car_data = pd.read_csv(car_file_name)
-    if not car_data.empty:
+    if os.path.exists(car_file_name):
         return car_name
     
     # データ読み込み
@@ -58,6 +58,8 @@ def select_cars(car_num):
     for i in range(len(data_new)):
         if models[i] != car_num:
             data_new = data_new.drop(i)
+
+    data_new.sort_values(by=keys[4], inplace=True)
 
     # データの保存
     data_new.to_csv('csv/toyota-integered-{}.csv'.format(car_name), index=False)

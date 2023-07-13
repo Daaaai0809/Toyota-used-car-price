@@ -76,7 +76,7 @@ regr = linear_model.RidgeCV(cv=cv)
 regr.fit(X_train_std, y_train)
 
 # 交差検証法による係数の導出とR2スコアの最適化
-scores = cross_val_score(regr, X_train, y_train, cv=cv)  # 5分割交差検証
+scores = cross_val_score(regr, X_test, y_test, cv=cv)
 mean_score = np.mean(scores)
 
 # テストデータで予測
